@@ -1,16 +1,8 @@
-
-
-function tocaSomPom() {
-    document.querySelector('#som_tecla_pom').play();
-}
-
-
 // Onclick não é uma funçnao, mas um atributo. 
 // por isso eu dou ujm valor a esse atributo, com o "="
-document.querySelector('.tecla_pom').onclick = tocaSomPom;
+//document.querySelector('.tecla_pom').onclick = tocaSomPom;
 
 /* 
-
 --- IMPORTANTE!!!
 
 Sei eu coloco atributo = funcao() o navegador le e executa
@@ -25,5 +17,24 @@ o navegador apenas guarda e referencia da funcao
 tocaSomPom dentro do atributo onclick
 
 isso devido a orderm de execucao do JS
-
 */
+
+
+
+
+function tocaSomPom() {
+    document.querySelector('#som_tecla_pom').play();
+}
+
+// Come saber se é uma constante ou variável?
+//Simples, vai ser modificada deppois? Se sim é VAR se não é CONST
+// LET é para variaveis que mudam 
+const listaDeTeclas = document.querySelectorAll('.tecla');
+let contador = 0;
+
+// Estutura de repedição
+while (contador < listaDeTeclas.length) {
+    listaDeTeclas[contador].onclick = tocaSomPom;
+    contador = contador + 1
+} 
+
