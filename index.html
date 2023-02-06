@@ -15,13 +15,17 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estilos.css">
 
+    <!-- Se o Js não depende dos elementos do DOM para ser renderizado,
+        então posso colocar no começo, na HEAD
+    O navegador le e ja começa a executar o JS
+    -->
 </head>
 <body>
 
     <h1>Alura Midi</h1>
 
     <section class="teclado">
-        <button onclick="alert('POM')" class="tecla tecla_pom">Pom</button>
+        <button class="tecla tecla_pom">Pom</button>
         <button class="tecla tecla_clap">Clap</button>
         <button class="tecla tecla_tim">Tim</button>
 
@@ -44,5 +48,9 @@
     <audio controls src="sounds/keyx.wav" id="som_tecla_tic"></audio>
     <audio controls src="sounds/keyc.wav" id="som_tecla_tom"></audio>
 
+
+    <!-- Se o JS usa elemento do DOM, devo chamado depois
+        do dom ser renderizado (portanto no fim o arquivo)-->
+    <script src="main.js"></script>
 </body>
 </html>
