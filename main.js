@@ -34,7 +34,24 @@ let contador = 0;
 
 // Estutura de repedição
 while (contador < listaDeTeclas.length) {
-    listaDeTeclas[contador].onclick = tocaSom;
+
+    const tecla = listaDeTeclas[contador];
+    const instumento = tecla[contador].classList[1];
+
+
+    // --- IMPORTANTE!!!
+    // NAME: TEMPLATE STRING !!!!
+    // Tratar string utilizando a CRASE e não aspas (simples ou duplas)
+    // Assim consegue-se tratar as string e colocar código JS dentro dela.
+    // Pode colcaor metodos, math, etc. 
+    // exemplo: `blablabl ${codigo js}`
+    const idAudio = `#som_${instumento}`;
+
+    // isso resolve o problem anterior do codigo sem o parentese.
+    // Ao criar uma função anonima não executamos, apenas chamamos. 
+    listaDeTeclas[contador].onclick = function () {
+        tocaSom('#som_tecla_pom');
+    };
     contador = contador + 1
 } 
 
