@@ -21,9 +21,9 @@ isso devido a orderm de execucao do JS
 
 
 
-
-function tocaSomPom() {
-    document.querySelector('#som_tecla_pom').play();
+// Parametros de funcao
+function tocaSom(idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
 }
 
 // Come saber se é uma constante ou variável?
@@ -34,7 +34,7 @@ let contador = 0;
 
 // Estutura de repedição
 while (contador < listaDeTeclas.length) {
-    listaDeTeclas[contador].onclick = tocaSomPom;
+    listaDeTeclas[contador].onclick = tocaSom;
     contador = contador + 1
 } 
 
