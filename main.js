@@ -36,7 +36,7 @@ let contador = 0;
 while (contador < listaDeTeclas.length) {
 
     const tecla = listaDeTeclas[contador];
-    const instumento = tecla[contador].classList[1];
+    const instumento = tecla.classList[1];
 
 
     // --- IMPORTANTE!!!
@@ -50,7 +50,7 @@ while (contador < listaDeTeclas.length) {
     // isso resolve o problem anterior do codigo sem o parentese.
     // Ao criar uma função anonima não executamos, apenas chamamos. 
     listaDeTeclas[contador].onclick = function () {
-        tocaSom('#som_tecla_pom');
+        tocaSom(idAudio);
     };
     contador = contador + 1
 } 
