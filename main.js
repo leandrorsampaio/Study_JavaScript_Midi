@@ -30,10 +30,28 @@ function tocaSom(idElementoAudio) {
 //Simples, vai ser modificada deppois? Se sim é VAR se não é CONST
 // LET é para variaveis que mudam 
 const listaDeTeclas = document.querySelectorAll('.tecla');
-let contador = 0;
+
+
+
+
 
 // Estutura de repedição
-while (contador < listaDeTeclas.length) {
+// Utilizando o FOR
+// O problema do whle é que ele depende de um fator externo (contador)
+// No codigo desse midi player eu teria q ter um contador para cada novo instrumento
+// Sendo assim o FOR funciona por ele mesmo
+// O FOR ja possui tudo isso dentro ele
+// Estrutura de Loop (laço).
+
+// ANTES:
+// let contador = 0;
+// while (contador < listaDeTeclas.length) {
+//
+// DEPOIS:
+// Note que o contador funciona dentro do laço for e não fora dele como no WHILE
+// For (init var; condição; Incrementa) 
+// (ao final não precisa incrementar)
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
     const tecla = listaDeTeclas[contador];
     const instumento = tecla.classList[1];
@@ -52,6 +70,22 @@ while (contador < listaDeTeclas.length) {
     listaDeTeclas[contador].onclick = function () {
         tocaSom(idAudio);
     };
-    contador = contador + 1
+    
+    // No for nao é necessário isso. 
+    // Fica la na definicnao do laço
+    //contador = contador + 1
 } 
 
+
+
+
+/*
+FOR: 
+
+for (expression 1; expression 2; expression 3) {
+  // code block to be executed
+}
+Expression 1 is executed (one time) before the execution of the code block.
+Expression 2 defines the condition for executing the code block.
+Expression 3 is executed (every time) after the code block has been executed.
+*/
