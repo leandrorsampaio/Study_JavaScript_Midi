@@ -71,6 +71,13 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
         tocaSom(idAudio);
     };
     
+    tecla.onkeydown = function() {
+        tecla.classList.add('ativa');
+    }
+    tecla.onkeyup = function() {
+        tecla.classList.remove('remove');
+    }
+
     // No for nao é necessário isso. 
     // Fica la na definicnao do laço
     //contador = contador + 1
