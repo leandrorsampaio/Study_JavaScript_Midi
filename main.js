@@ -22,8 +22,14 @@ isso devido a orderm de execucao do JS
 
 
 // Parametros de funcao
-function tocaSom(idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+function tocaSom(seletorAudio) {
+    const elemento = document.querySelector(seletorAudio);
+
+    if(elemento && elemento.localName === 'audio') {
+        elemento.play();
+    } else {
+        alert('elemento não encontrado');
+    }
 }
 
 // Come saber se é uma constante ou variável?
@@ -71,8 +77,11 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
         tocaSom(idAudio);
     };
     
-    tecla.onkeydown = function() {
-        tecla.classList.add('ativa');
+    tecla.onkeydown = function(evento) {
+        
+        if(evento.code === 'Space' || evento.code === 'Enter') {
+            tecla.classList.add('ativa');
+        }   
     }
     tecla.onkeyup = function() {
         tecla.classList.remove('remove');
